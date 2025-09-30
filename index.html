@@ -18,21 +18,16 @@
     }
     .control-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
     }
     .feature-icon {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
+      width: 80px; height: 80px; display:flex; align-items:center; justify-content:center;
+      border-radius: 20px; margin-bottom: 1.5rem;
     }
   </style>
 </head>
 <body class="font-sans antialiased text-gray-800">
+
   <!-- Navigation -->
   <nav class="bg-white shadow-lg fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,12 +120,30 @@
     </div>
   </div>
 
-  <!-- Features Section -->
+  <!-- Features Section (VIDEO) -->
   <div class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
         <div class="mb-12 lg:mb-0" data-aos="fade-right">
-          <img src="./static/images/features.jpg" alt="Smart-chair Navigator features" class="rounded-xl shadow-xl" />
+          <!-- Video replaces features image -->
+          <video
+            class="rounded-xl shadow-xl w-full h-auto"
+            playsinline
+            autoplay
+            muted
+            loop
+            preload="metadata"
+            poster="./static/images/features.jpg"
+          >
+            <source src="./static/videos/features.mp4" type="video/mp4" />
+            <!-- Optional extra format:
+            <source src="./static/videos/features.webm" type="video/webm" />
+            -->
+            Your browser does not support the video tag.
+          </video>
+          <noscript>
+            <img src="./static/images/features.jpg" alt="Smart-chair Navigator features" class="rounded-xl shadow-xl" />
+          </noscript>
         </div>
         <div data-aos="fade-left">
           <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Advanced Features for Independent Mobility</h2>
@@ -303,7 +316,6 @@
   </footer>
 
   <script>
-    // Init libs once DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
       AOS.init({ duration: 800, easing: "ease-in-out", once: true });
       feather.replace();
